@@ -1,24 +1,14 @@
 import * as elements from "./html_elements.js";
-import player from  "./player.js";
+import player from  "../domain/player.js";
+import songs from "./ports/multimedia.js;"
 
 export default function () {
 
 window.addEventListener('DOMContentLoaded', () => {
-    playingNow = player.getNextSong;
+    player.initializePlayer();
+    const playingNow = songs[player._actualSong];
 })
 
-elements.media.addEventListener('loadedmetadata', () => {
-    progress_bar.max = 100;
-    progress_bar.value = 0;
-    if(play_btn.classList.contains("pause")){
-        media.play();
-    }
-});
-
-elements.media.addEventListener('mediaupdate', function() {
-    const progress_value = (this.currentTime / this.duration) * 100;
-    progress_bar.value = progress_value;
-});
 
 elements.lastest.addEventListener('click', function(){
     if(!last.length == 0){
@@ -35,10 +25,6 @@ elements.forward.addEventListener('click', function(){
     }
 });
 
-
-elements.progress_bar.addEventListener('input', function(){
-    media.currentTime = (this.value/100) * media.duration;
-});
 
 elements.play_btn.addEventListener("click", playPause);
 

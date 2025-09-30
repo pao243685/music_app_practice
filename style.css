@@ -18,7 +18,6 @@
     width: 500px;
 
     justify-content: space-evenly;
-    background-color: wheat;
     
 }
 
@@ -33,12 +32,6 @@
     height: 500px;
 }
 
-
-.controls{
-      display: flex;
-    justify-content: center;
-    align-items: center;
-}
 
 .reproductor h2{
       display: flex;
